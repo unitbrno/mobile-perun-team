@@ -1,0 +1,32 @@
+{% extends "recordnote/_base.html" %}
+
+{% block content %}
+<h1>Event</h1>
+<table class="table table-striped">
+    <tr>
+        <th>Id</th>
+        <th>cas</th>
+        <th>uzivatelia</th>
+        <th></th>
+    </tr>
+    {% for o in object_list %}
+        <tr>
+            <td>{{ o.pk }}</td>
+            <td>{{ o.when }}</td>
+            <td>{% for u in o.subject.all %}
+                    {{ u.email }} 
+                {% endfor %}
+            </td>
+            <td>
+                <a class="btn btn-default" href="{% url 'subject:event-edit' pk=o.pk %}">Upravit</a>
+                <a class="btn btn-danger" href="{% url 'subject:event-delete' pk=o.pk %}">Odstranit</a>
+                <a class="btn btn-primary" href="{% url 'subject:send-email' pk=o.pk %}">Poslat emaily</a>
+                {# <a class="btn btn-success" href="{% url 'subject:event-list' subject_pk=o.pk %}">Nahravky TODO</a> #}
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+<a href="{% url 'subject:event-add' %}" class="btn btn-primary">Pridat</a>
+
+{% endblock %}

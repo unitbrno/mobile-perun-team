@@ -1,0 +1,27 @@
+{% extends "recordnote/_base.html" %}
+
+{% block content %}
+<h1>Uživatelé</h1>
+<table class="table table-striped">
+    <tr>
+        <th>E-mail</th>
+        <th>Aktivní</th>
+        <th>Administrátor</th>
+        <th></th>
+    </tr>
+    {% for o in object_list %}
+        <tr>
+            <td>{{ o.email }}</td>
+            <td>{{ o.is_active|yesno }}</td>
+            <td>{{ o.is_admin|yesno }}</td>
+            <td>
+                <a class="btn btn-default" href="{% url 'user:edit' pk=o.pk %}">Upravit</a>
+                <a class="btn btn-danger" href="{% url 'user:delete' pk=o.pk %}">Odstranit</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+<a href="{% url 'user:add' %}" class="btn btn-primary">Přidat</a>
+
+{% endblock %}

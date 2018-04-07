@@ -1,0 +1,7 @@
+{% extends "recordnote/_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h1>{{ object }}</h1>
+    {% include "recordnote/_delete_form.html" %}
+{% endblock %}

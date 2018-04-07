@@ -1,0 +1,8 @@
+{% extends "recordnote/_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="alert alert-danger" id="ajax_error_message_store" role="alert" style="display: none;" ></div>
+    <h1>{{ object }}</h1>
+    {% crispy form %}
+{% endblock %}
