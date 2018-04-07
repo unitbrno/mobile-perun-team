@@ -1,0 +1,37 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  padding-top: 105px;
+  display: flex;
+  flex-flow: column;
+}
+.btn-toolbar {
+  padding-top: 1em;
+}
+.nav-tabs {
+  margin-bottom: 1.5em;
+}
+.navbar-fixed-top {
+  flex: 0 1 auto;
+}
+.flex {
+  flex: 1 1 auto;
+  overflow-y: scroll;
+}
+.table-striped > tbody > tr:nth-of-type(odd):target {
+  background-color: #d9edf7;
+}
+tr:target {
+  background-color: #d9edf7;
+}
+.logo-kuki {
+  float: left;
+  margin: 5px 25px 5px 0px;
+}
+.add-top {
+  float: right;
+  margin-right: 10px;
+  margin-top: -40px;
+}

@@ -1,0 +1,15 @@
+<div>
+    <form action="{{ request.path }}" method="get">
+        <p> Počet zobrazených záznamů:
+            <select class="selectpicker" name="paginate_by" onchange='if(this.value != 0) { this.form.submit(); }'>
+                {% for o in possible_paginate_by %}
+                    {% if o == paginate_by %}
+                        <option selected>{{ o }}</option>
+                    {% else %}
+                        <option>{{ o }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </p>
+    </form>
+</div>
